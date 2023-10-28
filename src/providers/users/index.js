@@ -1,7 +1,7 @@
-import { createContext, useState, useContext, /* useEffect */ } from "react";
-/* import api from "../../services/api";
-import jwt_decode from "jwt-decode";
-import toast from "react-hot-toast"; */
+import { createContext, useState, useContext, useEffect, /* useEffect */ } from "react";
+import api from "../../services/api";
+import { jwtDecode } from "jwt-decode";
+import toast from "react-hot-toast";
 
 const UserContext = createContext({});
 
@@ -11,33 +11,68 @@ const useUser = () => {
 };
 
 const UserProvider = ({ children }) => {
- 
+    const [seriesList, setSeriesList] = useState([]);
+    const [openDrop, setOpenDrop] = useState(false);
 
-    const [token, setToken] = useState(
-        localStorage.getItem("@Teste:token") || false
+    const [userToken, setUserToken] = useState(
+      localStorage.getItem("@Challenge:token") || ""
     );
 
-    const [userId, setUserId] = useState(
-        localStorage.getItem("@Teste:userId") || 0
+    const [decoded, setdecoded] = useState(
+        localStorage.getItem("@Challenge:decoded") || 0
     );
-     
 
     const signIn = async (data) => {
-        setUserId("USERID TESTE")
-        setToken("USERTOKEN TESTE")
+      const response = await api.post("/login", data);
+      const { token } = response.data;
+      const decodedToken = jwtDecode(token);
+      localStorage.setItem("@Challenge:token", token);
+      localStorage.setItem("@Challenge:decoded", JSON.stringify(decodedToken));
+      setUserToken(token);
+      setdecoded(decodedToken); 
     };
 
     const signOut = () => {
-    
+      setOpenDrop(true); 
+      localStorage.removeItem("@Challenge:token");
+      localStorage.removeItem("@Challenge:decoded");
+      setUserToken(false);
+      setOpenDrop(false); 
+      toast.success("Você deslogou!");
     };
+
+    useEffect(() => {
+      if (userToken) {
+        api
+          .get("/data/timeserie/AirDewpoint?start=1693536210191&end=1698418537191&environment=c3qnj8pcb5eltsgqjgqg&function=MEAN&group=time(1h)&fill=none", {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+            },
+          })
+          .then((response) => {
+            setSeriesList(response.data);
+            toast.success("Login realizado com sucesso!");
+
+          })
+          .catch((err) => {
+            console.log(err)
+            toast.error("Algo deu errado, tente novamente!")
+            signOut()
+          });
+      }
+    }, [userToken]);
+
+    console.log("seriesList", seriesList.serie)
 
     return (
         <UserContext.Provider
           value={{
-            token,
-            userId,
+            userToken,
+            seriesList,
             signIn,
             signOut,
+            decoded,
+            openDrop
           }}
         >
           {children}

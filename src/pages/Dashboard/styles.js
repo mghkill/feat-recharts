@@ -13,76 +13,7 @@ export const Container = styled.main`
   }
 `;
 
-export const BoxField = styled.div`
-  width: 230px;
-  margin-top: 16px;
-  input {
-    padding: 23.5px 14px;
-  }
-  @media screen and (min-width: 400px) {
-    width: 280px;
-  }
-  @media (min-width: 700px) {
-    width: 500px;
-  }
-`;
-
-export const ContainedSvg = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 290px;
-  align-items: center;
-  transition: 0.5s;
-  img {
-    transition: 0.5s;
-    display: none;
-  }
-  h1 {
-    display: block;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 62px;
-    color: #dfc2eb;
-    span {
-      transition: 0.5s;
-      display: block;
-      font-size: 62px;
-      margin-left: 100px;
-      font-weight: normal;
-    }
-  }
-  @media screen and (min-width: 700px) {
-    width: 230px;
-    h1 {
-      font-size: 72px;
-      span {
-        font-size: 72px;
-      }
-    }
-  }
-  @media screen and (min-width: 1000px) {
-    width: 540px;
-    height: 80vh;
-    h1 {
-      span {
-        margin-left: 130px;
-      }
-    }
-    img {
-      display: block;
-      width: 500px;
-    }
-  }
-  @media screen and (min-width: 1400px) {
-    width: 760px;
-    img {
-      width: 750px;
-    }
-  }
-`;
-
-export const ContainedForm = styled.div`
+export const Contained = styled.div`
   width: 300px;
   height: 85%;
   background: linear-gradient(
