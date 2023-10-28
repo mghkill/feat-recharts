@@ -1,19 +1,18 @@
 import React from 'react';
+import { Ul } from './styles';
 
-const DataCard = ({ name, max, min, serie }) => {
+const DataCard = ({ element, listValue }) => {
   return (
     <div className="data-card">
-      <h2>{name}</h2>
-      <p>Max: {max}</p>
-      <p>Min: {min}</p>
-      <ul>
-        {serie.map(dataPoint => (
-          <li key={dataPoint.time}>
-            <strong>Time:</strong> {new Date(dataPoint.time).toLocaleString()} |
-            <strong>Value:</strong> {dataPoint.value}
+      <h2>{listValue.name}</h2>
+      <p>Max: {listValue.max}</p>
+      <p>Min: {listValue.min}</p>
+      <Ul>
+          <li>
+            <strong>Time:</strong> {new Date(element.time).toLocaleString()} 
+            <strong>Value:</strong> {element.value}
           </li>
-        ))}
-      </ul>
+      </Ul>
     </div>
   );
 };

@@ -51,6 +51,7 @@ const UserProvider = ({ children }) => {
           })
           .then((response) => {
             setSeriesList(response.data);
+            localStorage.setItem("@Challenge:list", JSON.stringify(response.data));
             toast.success("Login realizado com sucesso!");
 
           })
@@ -62,7 +63,7 @@ const UserProvider = ({ children }) => {
       }
     }, [userToken]);
 
-    console.log("seriesList", seriesList.serie)
+    
 
     return (
         <UserContext.Provider

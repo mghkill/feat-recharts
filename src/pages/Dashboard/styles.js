@@ -13,8 +13,20 @@ export const Container = styled.main`
   }
 `;
 
+export const StyledRecharts = styled.div`
+  width: 49%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`;
+
 export const Contained = styled.div`
-  width: 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 95%;
   height: 85%;
   background: linear-gradient(
     180deg,
@@ -27,29 +39,33 @@ export const Contained = styled.div`
   margin: 40px 0;
   transition: 0.5s;
   @media screen and (min-width: 700px) {
-    width: 395px;
+    width: 95%;
     padding: 70px 0;
     margin: 140px 0;
   }
   @media screen and (min-width: 1400px) {
-    width: 495px;
+    width: 95%;
   }
 `;
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 300px;
+  width: 50%;
+  overflow-y: scroll;
   height: 80%;
   transition: 0.5s;
   div {
     transition: 0.5s;
-    width: 280px;
+    width: 94%;
+    margin: 8px;
     background: white;
     border-radius: 12px;
-    height: 70px;
+    height: 100px;
+    padding: 8px;
+    list-style: none;
     label {
       margin-top: 8px;
     }
@@ -75,9 +91,9 @@ export const StyledForm = styled.form`
     color: ${(props) => (props.secondary ? "black" : "white")};
   }
   @media screen and (min-width: 700px) {
-    width: 395px;
+    width: 50%;
     div {
-      width: 350px;
+      width: 94%;
     }
     button {
       width: 320px;
@@ -88,9 +104,10 @@ export const StyledForm = styled.form`
     }
   }
   @media screen and (min-width: 1400px) {
-    width: 495px;
+    width: 50%;
     div {
-      width: 450px;
+      width: 94%;
+      
     }
     button {
       width: 420px;
