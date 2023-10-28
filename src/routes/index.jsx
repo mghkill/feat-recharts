@@ -9,13 +9,13 @@ import { useUser } from "../providers/users";
 
 const Routes = () => {
   const { userToken } = useUser();
-  
+
   const router = createBrowserRouter([
-      {
-        path: "/",
-        element: userToken ? <Dashboard /> : <LogIn />
-      }
-   ])
+    {
+      path: "/",
+      element: userToken ? <Dashboard /> : <LogIn />
+    }
+  ])
 
   return (
     <>

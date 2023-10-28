@@ -14,13 +14,14 @@ const LogIn = () => {
     } = useForm()
 
     const onSubmit = (data) => {
-         signIn(data).catch((err) => toast.error("Algo deu errado tente novamente")); 
+         signIn(data).catch((err) => toast.error("Verifique usuário ou senha!")); 
     }
     return (
         <Container>
 
             <ContainedForm>
                 <StyledForm onSubmit={handleSubmit(onSubmit)}>
+                        <h1>Acessar conta</h1>
                     <BoxField>
                         <TextField
                             sx={{
@@ -62,7 +63,7 @@ const LogIn = () => {
                             aria-invalid={errors.password ? "true" : "false"}
                             id="outlined-password-input"
                             label="password *"
-                            type="text"
+                            type="password"
                             error={errors.password?.type === "required"}
                             autoComplete="current-password"
                         />

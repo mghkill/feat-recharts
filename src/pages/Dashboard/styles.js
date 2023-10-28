@@ -1,9 +1,22 @@
 import styled from "styled-components";
 
+export const Ul = styled.ul`
+    list-style: none;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    left: 0;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height: 420px;
+    overflow-x: scroll;
+`;
+
 export const Container = styled.main`
   display: flex;
   justify-content: space-around;
-  background: black;
+  background: #ffffff;
   height: 100vh;
   flex-direction: column;
   align-items: center;
@@ -14,37 +27,41 @@ export const Container = styled.main`
 `;
 
 export const StyledRecharts = styled.div`
-  width: 49%;
-  background: white;
+  width: 100%;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80%;
 
+  div{
+  }
 `;
 
 export const Contained = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 95%;
+  width: 100%;
   height: 85%;
-  background: linear-gradient(
-    180deg,
-    rgb(255 255 255 / 94%) 0%,
-    #ffffffeb 100%
-  );
+  background: darkred;
+  
   border-radius: 15px;
   padding: 60px 0;
   box-sizing: border-box;
   margin: 40px 0;
   transition: 0.5s;
   @media screen and (min-width: 700px) {
-    width: 95%;
-    padding: 70px 0;
+    width: 100%;
+    padding: 0;
     margin: 140px 0;
+    background: darkred;
+    
   }
   @media screen and (min-width: 1400px) {
-    width: 95%;
+    width: 100%;
+    background: darkred;
+    
   }
 `;
 
@@ -53,19 +70,20 @@ export const StyledForm = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 50%;
-  overflow-y: scroll;
+  width: 100%;
   height: 80%;
   transition: 0.5s;
   div {
     transition: 0.5s;
     width: 94%;
+    margin: 0 auto;
     margin: 8px;
     background: white;
     border-radius: 12px;
     height: 100px;
     padding: 8px;
     list-style: none;
+    margin: 0 auto;
     label {
       margin-top: 8px;
     }
@@ -91,9 +109,10 @@ export const StyledForm = styled.div`
     color: ${(props) => (props.secondary ? "black" : "white")};
   }
   @media screen and (min-width: 700px) {
-    width: 50%;
+    width: 100%;
     div {
       width: 94%;
+      margin: 0 auto;
     }
     button {
       width: 320px;
@@ -104,9 +123,10 @@ export const StyledForm = styled.div`
     }
   }
   @media screen and (min-width: 1400px) {
-    width: 50%;
+    width: 100%;
     div {
       width: 94%;
+      margin: 0 auto;
       
     }
     button {
@@ -117,4 +137,13 @@ export const StyledForm = styled.div`
       margin-top: 14px;
     }
   }
+`;
+export const StyledMaps = styled.div`
+  width: 100%;
+  height: 80%;
+  border-top: solid 1px grey;
+  border-bottom: solid 1px grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

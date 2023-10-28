@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useUser } from "../../providers/users";
-import { Contained, Container, StyledForm, StyledRecharts } from "./styles";
+import { Contained, Container, StyledForm, StyledMaps, StyledRecharts, Ul } from "./styles";
 import DataCard from '../../components/Card'; // Importe o componente DataCard 
 import { Button } from '@mui/material';
 import Recharts from '../../components/RechartsLine';
@@ -13,21 +13,28 @@ const Dashboard = () => {
 
   useEffect(() => {
 
-    //Criação de paginação
-    const output = listValue?.serie.filter((e, i) => e)
+    //Criar de paginação
+    const output = listValue?.serie.filter((e) => e)
     setSerializeList(output)
-  }, [userList]) 
-
+  }, [userList])
 
   return (
     <Container>
       <Contained>
         <StyledForm>
-           {serializeList?.length > 0 && serializeList.map((e, i) => <DataCard listValue={listValue} key={i} element={e}>teste</DataCard> )}          
+          <Ul>
+            {serializeList?.length > 0 && serializeList.map((e, i) => (
+              <DataCard listValue={listValue} key={i} element={e}>teste</DataCard>
+            )
+            )}
+          </Ul>
         </StyledForm>
         <StyledRecharts>
-          <Recharts propList={serializeList} /> 
+          <Recharts propList={serializeList} />
         </StyledRecharts>
+        <StyledMaps>
+          Map
+        </StyledMaps>
         <Button onClick={signOut}>deslogar</Button>
       </Contained>
     </Container>
