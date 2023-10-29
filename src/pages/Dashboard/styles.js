@@ -26,16 +26,15 @@ export const Container = styled.main`
     flex-direction: row;
   }
   button {
-    width: 250px;
+    
     transition: 0.5s;
     height: 70px;
-    background: #a9b4d0;
-    color: #040000;
-    width: 100%;
-    background: #a9b4d0;
-    color: #040000;
+    background: blue;
+    color: grey;
+    width: 150px;
     position: absolute;
-    top: 0;
+    top: 3px;
+    left: 34px;
     height: 70px;
 
   }

@@ -13,6 +13,7 @@ const useUser = () => {
 const UserProvider = ({ children }) => {
   const [seriesList, setSeriesList] = useState([]);
   const [openDrop, setOpenDrop] = useState(false);
+  const [ polygonList, setPolygonList] = useState([])
 
   const [userToken, setUserToken] = useState(
     localStorage.getItem("@Challenge:token") || ""
@@ -21,6 +22,7 @@ const UserProvider = ({ children }) => {
   const [decoded, setdecoded] = useState(
     localStorage.getItem("@Challenge:decoded") || 0
   );
+
 
   const signIn = async (data) => {
     const response = await api.post("/login", data);
@@ -41,6 +43,28 @@ const UserProvider = ({ children }) => {
     toast.success("Você deslogou!");
   };
 
+  const polygonRef = () => {
+    
+    if (userToken) {
+      api
+        .get("https://api.prediza.io/api/account/environment/bkbau6tvva44af0lbiog/polygon/", {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        })
+        .then((response) => {
+          setPolygonList(response.data);
+          
+
+        })
+        .catch((err) => {
+          console.log(err)
+          toast.error("Algo deu errado, tente novamente!")
+          signOut()
+        });
+    }
+  } 
+
   useEffect(() => {
     if (userToken) {
       api
@@ -59,7 +83,9 @@ const UserProvider = ({ children }) => {
           console.log(err)
           toast.error("Algo deu errado, tente novamente!")
           signOut()
-        });
+        }
+      );
+      polygonRef();
     }
   }, [userToken]);
 
@@ -71,7 +97,8 @@ const UserProvider = ({ children }) => {
         signIn,
         signOut,
         decoded,
-        openDrop
+        openDrop,
+        polygonList
       }}
     >
       {children}
