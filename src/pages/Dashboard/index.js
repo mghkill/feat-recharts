@@ -4,6 +4,7 @@ import { Contained, Container, StyledForm, StyledMaps, StyledRecharts, Ul } from
 import DataCard from '../../components/Card'; // Importe o componente DataCard 
 import { Button } from '@mui/material';
 import Recharts from '../../components/RechartsLine';
+import ContentMaps from '../../components/ContentMaps';
 
 const Dashboard = () => {
 
@@ -20,6 +21,7 @@ const Dashboard = () => {
 
   return (
     <Container>
+        <Button onClick={signOut}>deslogar</Button>
       <Contained>
         <StyledForm>
           <Ul>
@@ -32,10 +34,7 @@ const Dashboard = () => {
         <StyledRecharts>
           <Recharts propList={serializeList} />
         </StyledRecharts>
-        <StyledMaps>
-          Map
-        </StyledMaps>
-        <Button onClick={signOut}>deslogar</Button>
+        <ContentMaps />
       </Contained>
     </Container>
   );

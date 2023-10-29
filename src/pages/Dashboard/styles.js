@@ -21,8 +21,23 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
   transition: 0.5s;
+  
   @media screen and (min-width: 700px) {
     flex-direction: row;
+  }
+  button {
+    width: 250px;
+    transition: 0.5s;
+    height: 70px;
+    background: #a9b4d0;
+    color: #040000;
+    width: 100%;
+    background: #a9b4d0;
+    color: #040000;
+    position: absolute;
+    top: 0;
+    height: 70px;
+
   }
 `;
 
@@ -45,18 +60,18 @@ export const Contained = styled.div`
   width: 100%;
   height: 85%;
   background: darkred;
-  
   border-radius: 15px;
   padding: 60px 0;
   box-sizing: border-box;
   margin: 40px 0;
   transition: 0.5s;
+  
   @media screen and (min-width: 700px) {
     width: 100%;
     padding: 0;
     margin: 140px 0;
     background: darkred;
-    
+    margin-top: 200px;
   }
   @media screen and (min-width: 1400px) {
     width: 100%;
@@ -78,7 +93,7 @@ export const StyledForm = styled.div`
     width: 94%;
     margin: 0 auto;
     margin: 8px;
-    background: white;
+    background: #040000;
     border-radius: 12px;
     height: 100px;
     padding: 8px;
@@ -96,18 +111,8 @@ export const StyledForm = styled.div`
     color: #9320c2;
     cursor: pointer;
   }
-  button {
-    width: 250px;
-    transition: 0.5s;
-    height: 70px;
-    background: black;
-    color: white;
-    margin-top: 14px;
-  }
-  button:hover {
-    background-color: ${(props) => (props.secondary ? "grey" : "grey")};
-    color: ${(props) => (props.secondary ? "black" : "white")};
-  }
+  
+  
   @media screen and (min-width: 700px) {
     width: 100%;
     div {
@@ -117,8 +122,8 @@ export const StyledForm = styled.div`
     button {
       width: 320px;
       height: 70px;
-      background: black;
-      color: white;
+      background: #a9b4d0;
+      color: #040000;
       margin-top: 14px;
     }
   }
@@ -132,18 +137,9 @@ export const StyledForm = styled.div`
     button {
       width: 420px;
       height: 70px;
-      background: black;
-      color: white;
+      background: #a9b4d0;
+      color: #040000;
       margin-top: 14px;
     }
   }
-`;
-export const StyledMaps = styled.div`
-  width: 100%;
-  height: 80%;
-  border-top: solid 1px grey;
-  border-bottom: solid 1px grey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
