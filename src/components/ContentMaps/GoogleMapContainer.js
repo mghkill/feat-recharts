@@ -14,32 +14,54 @@ const GoogleMapContainer = () => {
     };
 
     const handleApiLoaded = (map, maps) => {
-        let coords = [];
+        let coordsPolygon = [];
+        let coordsCircle = [];
+        let coordsDot = [];
 
-        polygonList.map((e) => {
-            // Construir coords
-            const output = []
-            e.Points.map((item) => {
-                output.push({
-                    lat: item.latitude,
-                    lng: item.longitude
+        const arr = polygonList.map((e) => {
+            if(e.Points.length > 0){
+                const arrOutput = [];
+                e.Points.map((item) => {
+                    arrOutput.push({
+                        lat: item.latitude,
+                        lng: item.longitude
+                    })
                 })
-            })
-            coords.push(output)
+                coordsPolygon.push(arrOutput)                
+            }
         })
 
-        const bermudaTriangle = new maps.Polygon({
-            paths: coords,
-            strokeColor: "#FF0000",
+        coordsCircle = coordsPolygon.filter((elementFilter) => elementFilter.length === 2)
+        coordsPolygon = coordsPolygon.filter((elementFilter) => elementFilter.length !== 2 && elementFilter.length !== 1)
+
+        console.log(coordsPolygon)
+        console.log(coordsCircle)
+
+        const createPolygon = new maps.Polygon({
+            paths: coordsPolygon,
+            strokeColor: "blue",
             strokeOpacity: 0.8,
             strokeWeight: 2,
-            fillColor: "#FF0000",
+            fillColor: "red",
             editable: true,
             geodesic: true,
-            fillOpacity: 0.35
+            fillOpacity: 0
+        });
+
+        const createCircle = new maps.Circle({
+            paths: coordsCircle,
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'red',
+            fillOpacity: 0.3,
+            center: {lat: -29.161639438871404, lng: -51.14370916428387},   
+            map,
+            radius: 100,
         });
          
-        bermudaTriangle.setMap(map);
+        createPolygon.setMap(map);
+        createCircle.setMap(map);
     }
 
 
