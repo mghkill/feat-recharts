@@ -9,6 +9,7 @@ export const Ul = styled.ul`
     left: 0;
     flex-wrap: nowrap;
     justify-content: space-between;
+
     height: 420px;
     overflow-x: scroll;
 `;
@@ -21,21 +22,24 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
   transition: 0.5s;
-  
+  width: 100%;
+  margin: 0 auto;
   @media screen and (min-width: 700px) {
     flex-direction: row;
   }
   button {
     
     transition: 0.5s;
-    height: 70px;
-    background: blue;
-    color: grey;
+    height: 60px;
+    background: #fff;
+    color: #323232;
     width: 150px;
     position: absolute;
-    top: 3px;
+    top: 2px;
     left: 34px;
     height: 70px;
+    border: 2px solid #323232;
+    box-shadow: 10px 10px #323232;
 
   }
 `;
@@ -58,23 +62,24 @@ export const Contained = styled.div`
   flex-wrap: wrap;
   width: 100%;
   height: 85%;
-  background: darkred;
+  background-color: #212121;
   border-radius: 15px;
   padding: 60px 0;
   box-sizing: border-box;
   margin: 40px 0;
   transition: 0.5s;
+  margin-top: 230px;
   
   @media screen and (min-width: 700px) {
     width: 100%;
     padding: 0;
     margin: 140px 0;
-    background: darkred;
-    margin-top: 200px;
+    background-color: #212121;
+    margin-top: 230px;
   }
   @media screen and (min-width: 1400px) {
     width: 100%;
-    background: darkred;
+    background-color: #212121;
     
   }
 `;
@@ -87,21 +92,7 @@ export const StyledForm = styled.div`
   width: 100%;
   height: 80%;
   transition: 0.5s;
-  div {
-    transition: 0.5s;
-    width: 94%;
-    margin: 0 auto;
-    margin: 8px;
-    background: #040000;
-    border-radius: 12px;
-    height: 100px;
-    padding: 8px;
-    list-style: none;
-    margin: 0 auto;
-    label {
-      margin-top: 8px;
-    }
-  }
+  
   input {
     padding: 23.5px 14px;
   }

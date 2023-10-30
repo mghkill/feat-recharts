@@ -4,12 +4,10 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 const Recharts = ({ propList }) => {
 
     return (
-        <div className="recharts-style">
-            <LineChart width={450} height={280} data={propList}>
+        <div>
+            <LineChart width={600} height={300} data={propList}>
                 <XAxis dataKey="time" textAnchor="end"  />
                 <YAxis  dataKey="value" textAnchor="end" />
-               
-                <CartesianGrid stroke="#eee" strokeDasharray="3 3" />
                 <Line activeDot={{ r: 8 }} type="monotone" dataKey="time" stroke="#f72373" dot={{ stroke: '#f72373', strokeWidth: 1, r: 0, fill: '8884d8'}} />
                 <Line type="monotone" dataKey="value" stroke="#f72373" dot={{ stroke: '#f72373', strokeWidth: 1, r: 0, fill: '#f72373'}} />
                 

@@ -9,7 +9,7 @@ const GoogleMapContainer = () => {
 
     const defaultProps = {
         zoom: 15,
-        center: { lat: polygonList[0]?.centroid[0], lng: polygonList[0]?.centroid[1] },
+        center: {lat: -29.161639438871404, lng: -51.14370916428387},
         mapTypeId: "terrain"
     };
 
@@ -55,8 +55,7 @@ const GoogleMapContainer = () => {
             strokeWeight: 2,
             fillColor: 'red',
             fillOpacity: 0.3,
-            center: {lat: -29.161639438871404, lng: -51.14370916428387},   
-            map,
+            center: defaultProps.center,   
             radius: 100,
         });
          
@@ -79,7 +78,7 @@ const GoogleMapContainer = () => {
                     <AnyReactComponent
                         lat={-29.114484840592503}
                         lng={-51.00242316665107}
-                        text={'Poligono Teste'}
+                        text={'Teste Filipe'}
                     />
                 </GoogleMapReact>
 
