@@ -41,10 +41,10 @@ const GoogleMapContainer = () => {
             paths: coordsPolygon,
             strokeColor: "blue",
             strokeOpacity: 0.8,
-            strokeWeight: 2,
+            strokeWeight: 1,
             fillColor: "red",
-            editable: true,
-            geodesic: true,
+           /*  editable: true,
+            geodesic: true, */
             fillOpacity: 0
         });
 
@@ -52,7 +52,7 @@ const GoogleMapContainer = () => {
             paths: coordsCircle,
             strokeColor: '#FF0000',
             strokeOpacity: 0.8,
-            strokeWeight: 2,
+            strokeWeight: 1,
             fillColor: 'red',
             fillOpacity: 0.3,
             center: defaultProps.center,   
