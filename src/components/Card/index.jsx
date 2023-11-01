@@ -1,20 +1,24 @@
 import React from 'react';
 import { Li } from './styles';
+import { Box } from '@mui/material';
 
 const DataCard = ({ element, listValue }) => {
+  const formatNumber = (number) => {
+    return number.toFixed(2);
+  };
   return (
     <Li>
-      <div className="data-card">
-        <h2>{listValue.name}</h2>
-        <p>Max: {listValue.max}</p>
-        <p>Min: {listValue.min}</p>
+      <Box>
+      <h2>{listValue.name}</h2>
+        <p>Max: {formatNumber(listValue.max)}</p>
+        <p>Min: {formatNumber(listValue.min)}</p>
         <p>
           <strong>Time:</strong> {new Date(element.time).toLocaleString()}
         </p>
         <p>
-          <strong>Value:</strong> {element.value}
+          <strong>Value:</strong> {formatNumber(element.value)}
         </p>
-      </div>
+      </Box>
     </Li>
   );
 };

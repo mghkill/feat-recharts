@@ -8,8 +8,7 @@ export const Ul = styled.ul`
     flex-direction: row;
     left: 0;
     flex-wrap: nowrap;
-    justify-content: space-between;
-
+    justify-content: flex-start;
     height: 420px;
     overflow-x: scroll;
 `;
@@ -48,7 +47,7 @@ export const StyledRecharts = styled.div`
   width: 100%;
   background: #ffffff;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 80%;
 

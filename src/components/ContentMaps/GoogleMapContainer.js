@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import GoogleMapReact from 'google-map-react';
 import { useUser } from "../../providers/users";
 
@@ -9,17 +9,17 @@ const GoogleMapContainer = () => {
 
     const defaultProps = {
         zoom: 15,
-        center: {lat: -29.161639438871404, lng: -51.14370916428387},
+        center: { lat: -29.161639438871404, lng: -51.14370916428387 },
         mapTypeId: "terrain"
     };
 
     const handleApiLoaded = (map, maps) => {
         let coordsPolygon = [];
         let coordsCircle = [];
-        let coordsDot = [];
+        /*  let coordsDot = []; */
 
         const arr = polygonList.map((e) => {
-            if(e.Points.length > 0){
+            if (e.Points.length > 0) {
                 const arrOutput = [];
                 e.Points.map((item) => {
                     arrOutput.push({
@@ -27,25 +27,22 @@ const GoogleMapContainer = () => {
                         lng: item.longitude
                     })
                 })
-                coordsPolygon.push(arrOutput)                
+                coordsPolygon.push(arrOutput)
             }
         })
 
         coordsCircle = coordsPolygon.filter((elementFilter) => elementFilter.length === 2)
         coordsPolygon = coordsPolygon.filter((elementFilter) => elementFilter.length !== 2 && elementFilter.length !== 1)
 
-        console.log(coordsPolygon)
-        console.log(coordsCircle)
-
         const createPolygon = new maps.Polygon({
             paths: coordsPolygon,
-            strokeColor: "blue",
+            strokeColor: "lightgreen",
             strokeOpacity: 0.8,
-            strokeWeight: 1,
+            strokeWeight: 2,
             fillColor: "red",
-           /*  editable: true,
-            geodesic: true, */
-            fillOpacity: 0
+            /*  editable: true,
+             geodesic: true, */
+            fillOpacity: 0.1
         });
 
         const createCircle = new maps.Circle({
@@ -54,11 +51,11 @@ const GoogleMapContainer = () => {
             strokeOpacity: 0.8,
             strokeWeight: 1,
             fillColor: 'red',
-            fillOpacity: 0.3,
-            center: defaultProps.center,   
+            fillOpacity: 0,
+            center: defaultProps.center,
             radius: 100,
         });
-         
+
         createPolygon.setMap(map);
         createCircle.setMap(map);
     }
